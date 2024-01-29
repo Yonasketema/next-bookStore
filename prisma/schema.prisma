@@ -6,3 +6,19 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+enum GENRE {
+  historical
+  fiction
+  science
+}
+
+model Book {
+  id              String   @id @default(uuid())
+  author          String
+  title           String
+  rating          Float?
+  publicationDate DateTime
+  genre           GENRE
+  img             String?  @default("")
+}
