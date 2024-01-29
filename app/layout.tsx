@@ -16,7 +16,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <main className="grid h-screen  sm:grid-rows-[auto_1fr] sm:grid-cols-[auto_1fr]  ">
+          <header className="sm:col-span-2 bg-yellow-400">user search</header>
+
+          <aside className="bg-rose-400 px-3">home myBooks logo footer</aside>
+          <section className="px-3 overflow-y-scroll">{children}</section>
+        </main>
+      </body>
     </html>
   );
 }
