@@ -1,16 +1,19 @@
+import db from "@/utils/db";
 import BookList from "@/components/BookList";
-const { PrismaClient } = require("@prisma/client");
-const prisma = new PrismaClient();
 
 async function getAllBook() {
-  const books = await prisma.book.findMany({});
+  const books = await db.book.findMany({});
   return books;
 }
 
 async function Home() {
   const books = await getAllBook();
 
-  return <BookList books={books} />;
+  return (
+    <section className="p-8  h-screen">
+      <BookList books={books} />
+    </section>
+  );
 
   {
     /* new-book best-book-list author-list */
