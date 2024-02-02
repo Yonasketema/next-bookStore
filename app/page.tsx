@@ -10,7 +10,7 @@ async function Home() {
   const books = await getAllBook();
 
   return (
-    <section className="p-8  h-screen">
+    <section className="px-14 py-7">
       <BookList books={books} />
     </section>
   );
