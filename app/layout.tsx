@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { BiBook } from "react-icons/bi";
 import { Inter } from "next/font/google";
 import Link from "next/link";
+import { BiBook } from "react-icons/bi";
 
 import "./globals.css";
 
@@ -20,26 +20,28 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="sm:col-span-2 bg-slate-50 flex px-4 py-2  w-full justify-between items-center">
+        <header className="flex w-full items-center justify-between  bg-slate-50  px-14 py-2 sm:col-span-2">
           <Link
             href="/"
-            className="flex flex-col items-center font-medium hover:text-yellow-500 delay-75 transition-colors   text-xl text-yellow-600"
+            className="flex flex-col items-center text-xl font-medium text-yellow-600 transition-colors   delay-75 hover:text-yellow-500"
           >
             <span>next</span> bookstore
           </Link>
 
-          <nav className="flex items-start gap-3 text-lg text-yellow-600 font-semibold">
+          <nav className="flex items-center gap-3 text-lg font-semibold text-yellow-600">
             <Link
               href="/"
-              className="flex gap-1 items-center  hover:text-yellow-500 delay-75 transition-colors "
+              className="flex items-center gap-1 transition-colors delay-75 hover:text-yellow-500 "
             >
               <BiBook /> My Books
             </Link>
             user
           </nav>
         </header>
+
         <main>{children}</main>
-        <footer className="text-yellow-500 text-center   bg-yellow-950 h-24">
+
+        <footer className="h-24 bg-yellow-950 text-center text-yellow-500">
           @yonas github
         </footer>
       </body>
