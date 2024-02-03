@@ -2,6 +2,8 @@ import Image from "next/image";
 import { BsBookmark, BsFillBookmarkFill } from "react-icons/bs";
 
 import db from "@/utils/db";
+import ReviewForm from "@/components/ReviewForm";
+import ReviewList from "@/components/ReviewList";
 
 async function getBook(id: string) {
   const book = await db.book.findUnique({
@@ -16,8 +18,8 @@ async function Book({ params }) {
   const book = await getBook(params.id);
 
   return (
-    <section className="px-14 py-7">
-      <div className="flex justify-between gap-10">
+    <section className="mb-7 px-14 py-7">
+      <div className="mb-7 flex justify-between gap-10">
         <div className="space-y-2">
           <div className="flex items-baseline justify-between">
             <h1 className="mb-4 text-5xl capitalize text-slate-900">
@@ -44,7 +46,8 @@ async function Book({ params }) {
         <Image src={book?.img} width={560} height={680} />
       </div>
 
-      <div>Review</div>
+      <ReviewList reviews={[]} />
+      <ReviewForm />
     </section>
   );
 }
