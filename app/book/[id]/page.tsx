@@ -46,8 +46,8 @@ async function Book({ params }) {
         <Image src={book?.img} width={560} height={680} />
       </div>
 
-      <ReviewList reviews={[]} />
-      <ReviewForm />
+      <ReviewList bookId={book?.id} />
+      <ReviewForm bookId={book?.id} />
     </section>
   );
 }

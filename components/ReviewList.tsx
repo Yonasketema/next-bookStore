@@ -1,6 +1,18 @@
 import Review from "./Review";
+import db from "@/utils/db";
 
-function ReviewList({ reviews }) {
+async function getBookReview(id: string) {
+  const reviews = await db.review.findMany({
+    where: {
+      bookId: id,
+    },
+  });
+  return reviews;
+}
+
+async function ReviewList({ bookId }) {
+  const reviews = await getBookReview(bookId);
+
   return (
     <ul>
       {reviews.map((review) => (

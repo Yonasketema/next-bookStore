@@ -1,17 +1,23 @@
-import React from "react";
+"use client";
+import { createBookReview } from "@/actions/actions";
 
-function ReviewForm() {
+function ReviewForm({ bookId }) {
   return (
-    <form className="rounded-mdp-8 mx-auto space-y-4">
+    <form
+      action={async (formData: FormData) => {
+        await createBookReview(formData, bookId, "11e3211");
+      }}
+      className="mx-auto space-y-4 rounded-md p-8"
+    >
       <div className="space-y-1">
         <label className="invisible" htmlFor="review">
           Email
         </label>
-        <input
+        <textarea
           id="review"
-          type="text"
+          name="review"
           placeholder=""
-          className="h-20 w-full rounded border border-stone-300 px-4 py-2 text-sm font-light outline-stone-600"
+          className="h-20 w-full rounded border border-stone-300 px-4 py-2  text-sm font-light outline-stone-600"
         />
       </div>
 

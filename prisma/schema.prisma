@@ -21,4 +21,16 @@ model Book {
   publicationDate DateTime
   genre           GENRE
   img             String?  @default("")
+  reviews         Review[]
+}
+
+model Review {
+  id         String   @id @default(uuid())
+  review     String
+  userId     String
+  book       Book     @relation(fields: [bookId], references: [id])
+  bookId     String
+  date       DateTime @default(now())
+  user_name  String
+  user_image String   @default("")
 }
