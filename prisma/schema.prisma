@@ -14,14 +14,15 @@ enum GENRE {
 }
 
 model Book {
-  id              String   @id @default(uuid())
+  id              String      @id @default(uuid())
   author          String
   title           String
   rating          Float?
   publicationDate DateTime
   genre           GENRE
-  img             String?  @default("")
+  img             String?     @default("")
   reviews         Review[]
+  savedBooks      SavedBook[]
 }
 
 model Review {
@@ -33,4 +34,11 @@ model Review {
   date       DateTime @default(now())
   user_name  String
   user_image String   @default("")
+}
+
+model SavedBook {
+  id     String @id @default(uuid())
+  book   Book   @relation(fields: [bookId], references: [id])
+  bookId String
+  userId String
 }
