@@ -15,6 +15,26 @@ export async function createBookReview(
       review: review_text as string,
       bookId,
       userId,
+      user_name: "yonask",
+    },
+  });
+
+  revalidatePath(`/book/${bookId}`);
+}
+export async function saveBook(bookId: string, userId: string) {
+  await db.savedBook.create({
+    data: {
+      bookId,
+      userId,
+    },
+  });
+
+  revalidatePath(`/book/${bookId}`);
+}
+export async function unSaveBook(id: string, bookId: string) {
+  await db.savedBook.delete({
+    where: {
+      id,
     },
   });
 
