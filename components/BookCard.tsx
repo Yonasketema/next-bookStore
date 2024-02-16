@@ -3,7 +3,7 @@ import Link from "next/link";
 function BookCard({ book }) {
   return (
     <Link href={`book/${book.id}`}>
-      <li className="max-w-max space-y-2 bg-slate-50 hover:shadow-lg">
+      <li className="max-w-max space-y-2 border bg-white  hover:shadow-lg">
         <img src={book.img} className="md:h-72" alt="" />
 
         <div className="flex flex-col justify-between space-y-2 p-3">

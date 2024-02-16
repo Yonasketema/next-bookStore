@@ -14,7 +14,7 @@ async function ReviewList({ bookId }) {
   const reviews = await getBookReview(bookId);
 
   return (
-    <ul>
+    <ul className="space-y-3">
       {reviews.map((review) => (
         <Review review={review} key={review.id} />
       ))}
