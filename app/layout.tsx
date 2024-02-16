@@ -30,7 +30,7 @@ export default function RootLayout({
 
           <nav className="flex items-center gap-3 text-lg font-semibold text-yellow-600">
             <Link
-              href="/"
+              href="/my-books"
               className="flex items-center gap-1 transition-colors delay-75 hover:text-yellow-500 "
             >
               <BiBook /> My Books
